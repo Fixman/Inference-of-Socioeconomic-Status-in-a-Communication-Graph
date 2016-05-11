@@ -1,5 +1,4 @@
-abstract.tex
-section_Introduction_Recent_years_have__.tex
+abstractsection_Introduction_Recent_years_have__.tex
 .tex
 sectionIntroduction_.tex
 figures/gender_age_bar1/gender_age_bar1.png
