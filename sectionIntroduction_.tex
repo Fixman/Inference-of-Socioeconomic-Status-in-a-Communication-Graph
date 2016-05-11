@@ -1,6 +1,6 @@
-\section{Introduction}
+\section{Data Source}
 
-\subsection{Data source}
+\subsection{Mobile Phone Data Source}
 
 
 The data used in this study consist of \textbf{Call Default Records}, or CDRs, made on calls and text messages from a Mexican telco in a period of \( M \) months (\( M = 3 \)), denoted by \( L \). Every CDR contains the anonimized phone numbers of the two participants in the communication \(\left<o, d\right>\), the call time \( t \), and, in the case of CDRs for phonecalls the call duration \( s \). A subset of these calls also contain the latitude and longitude of the call's antenna, \( \left<y, x\right> \).
@@ -15,6 +15,7 @@ For this study we have demographic information about age and gender \( \left< e,
 
 To support the study, we got results from the last mexican census, found in {cite census URL} and, using the socioeconomic level of certain areas of Mexico, we can make a first approximation of the wealth in these areas.
 
-\subsection{Data Inference}
+\subsection{Ground Truth for Data Inference}
 
 Given the set of gender and age data in the Ground Truth \( \left| G_{GT} \right| = 1805534 \), and the set of calls made by the users, we can use the Reaction Diffusion algorithm \cite{brea2014} to extend the inference to all of \( G_N \).
+
