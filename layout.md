@@ -6,5 +6,5 @@ figures/gender_age_bar1/gender_age_bar1.png
 figures/sei_hist/sei_hist.png
 figures/sei_age_heatmap/sei_age_heatmap.png
 1.tex
-section_Inference_Methodology_Census_data__.tex
+section_Inference_Methodology_For_the__.tex
 section_Results_Describe_results_obtained__.tex
