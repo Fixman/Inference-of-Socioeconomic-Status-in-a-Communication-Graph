@@ -6,3 +6,4 @@ figures/sei_hist/sei_hist.png
 figures/sei_age_heatmap/sei_age_heatmap.png
 1.tex
 section_Inference_Methodology_Describe_here__.tex
+section_Results_Describe_results_obtained__.tex
