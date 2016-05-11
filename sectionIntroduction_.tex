@@ -2,18 +2,19 @@
 
 \subsection{Data source}
 
-The data used in this study consist of \textbf{Call Default Records}, or CDRs, made on calls and text messages from a Mexican telco in a period of \( M \) months (\( M = 3 \)), denoted by \( L \). Every CDR contains the anonimized phone numbers of the two participants in the communication \(\left<o, d\right>\), the call time \( t \), and, in the case of CDRs for phonecalls the call duration \( s \). A subset of these calls also contain the latitude and longitude of the call's antenna, \( \left<y, x\right> \).
+The data user for this study consist of \testbf{Call Detail Records}, or CDRs, about calls and text messages 
 
-\( L \) contains calls and messages whos origin or destination are users in the telco, but it doesn't include communications between the great amount of users which aren't part of this. Defining \( N \) as the users of the telco, and \( L_N \) as the calls where \( o \in N \wedge d \in N \), we can create a communications graph \( G_N \) that contains all calls between their users.
+Los datos usados por este estudio consisten de \textbf{Call Detail Records}, o CDRs, sobre llamados y mensajes de texto provenientes de la red de una compañía telefónica Mexicana, en un periodo de \( M \) meses (\( M = 3 \)), denotado por \( L \). Cada CDR contiene los números de teléfonos anonimizados de los dos participantes de la comunicación \(\left<o, d\right>\), el tiempo del llamado \(t\), y, en el caso de los CDRs de llamados su duración \(s\). Un subconjunto de estos llamados también contienen la latitud y la longitud de la antena usada para la llamada, \(\left<y, x\right>\).
 
-We also use information about deposits, withdrawals, and other transactions made by users from one of the largest banks in Mexico. Some of those have data about their phone numbers which is anonimized in the same way as CDRs, so this data can be correlated with the phone data. We use the data from the same \( M \) month period, denoted by \( B \), which include for each user up to 4 phones \( t_0, \cdots, t_3 \), and information about the dollar amount of its transactions \( s_0, \cdots, s_n \).
+\( L \) contiene llamadas y mensajes cuyo origen o destino son los usuarios de la telco, pero no incluye comunicaciones entre la gran cantidad de usuarios que no son parte de esta. Definiendo \( N \) como los usuarios de la telco y \( L_N \) como las llamadas donde \( o \in N \wedge d \in N \), podemos crear un grafo de comunicaciones \( G_N \) que contenga todas las llamadas de cada uno de sus usuarios.
 
-Just ilke the previous dataset, \( B \) contains a great amount of tdata about users that don't belong to the telco. We define \( B_N \) as the bank users which belong to the telco: \( \left( \forall \left( t_0, \cdots, t_3 \right) \in \text{phones}\left( B_N \right) \right) \left( \exists i \right) t_i \in N \).
+Además se usa información sobre depósitos, extracciones, y transacciones hechas desde bancarias de uno de los bancos más grandes de México, algunas de las cuales incluyen el número de teléfono anonimizado de la misma manera que en los CDRs, por lo cual se puede correlacionar con estos. Usamos los datos durante el mismo periodo de \( M \) meses, denotado por \( B \), los cuales incluyen, por cada usuario hasta 4 teléfonos \( t_0 \cdots t_3 \), e información del monto de sus transacciones \( s_0 \cdots s_n \).
 
-For this study we have demographic information about age and gender \( \left< e, g \right> \) from a subset of nodes \( G_{GT} \subset G_N \) which we call \textbf{Ground Truth}. These data is provided by the telco and we don't have any control on the selection process.
+Al igual que en el dataset anterior, \( B \) contiene una gran cantidad de datos sobre usuarios que no pertenecen a la telco. Definimos \( B_N \) como los usuarios del banco donde \( \left( \exists i \right) t_i \in N \), osea que pertenezcan a la telco.
 
-To support the study, we got results from the last mexican census, found in {cite census URL} and, using the socioeconomic level of certain areas of Mexico, we can make a first approximation of the wealth in these areas.
+Para este estudio conseguimos información demográfica sobre la edad y el género \( \left<e, g\right> \) de un subconjunto de los nodos \( G_{GT} \subset G_N \) al que denominamos \textbf{Ground Truth}. Estos datos los provee la compañía telefónica y no tenemos ningún tipo de control sobre como se selecciona.
 
+Para apoyar al estudio, conseguimos los resultados del último censo mexicano, encontrado en {URL del censo acá} y, usando el nivel socioeconómico de ciertas áreas de México, podemos hacer una primera aproximación del nivel socioeconómico de la población de esas áreas.
 
 \subsection{Data Inference}
 
