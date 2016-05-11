@@ -8,4 +8,5 @@ figures/sei_hist/sei_hist.png
 figures/sei_age_heatmap/sei_age_heatmap.png
 1.tex
 section_Inference_Methodology_For_the__.tex
+figures/Homophily_income_origin_target/Homophily_income_origin_target.png
 section_Results_Describe_results_obtained__.tex
