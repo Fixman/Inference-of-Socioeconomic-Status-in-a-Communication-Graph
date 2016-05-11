@@ -1,15 +1,21 @@
 \section{Inference Methodology}
 
-For the SEI:
+%For the SEI:
 
-Census data + geolocalization + ARPU + cellphone payments (recharges)  --> SEI estimation for geolocalized users. 
+%Census data + geolocalization + ARPU + cellphone payments (recharges)  --> SEI estimation for geolocalized users. 
 
-Second, we extended our predictions taking advantage of graph structure and socioeconomic homophily. To this end, we considered a bayesian  
+%Second, we extended our predictions taking advantage of graph structure and socioeconomic homophily. To this end, we considered a bayesian  
 
 
 For the Income prediction:
 
 Generation of the Income ground truth
+
+In order to infer the socioeconomic level of users on the social graph we take advantage of both, monthly salaries in a subset of users (i.e. our ground truth) and high order correlations given by link connections in our communication graph. 
+First of all, we define our ground truth of monthly salary per user by considering banking data of salaries. More precisely, by a given user in our graph $u_i$ we compute his/her average monthly wage, we as the average user in a six month windows.  
+
+In order to propagate the income prediction to others users in our graph, we address a statistical inference of income categories in our directed graph. To this end, we first have checked a underlaying the hypothesis of homophily, i.e that users of high socioeconomic level trends to relate with others of similar status (
+
 
 Prediction for the neighbors
 
