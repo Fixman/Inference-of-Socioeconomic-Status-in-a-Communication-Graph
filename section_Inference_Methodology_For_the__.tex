@@ -6,16 +6,7 @@
 
 %Second, we extended our predictions taking advantage of graph structure and socioeconomic homophily. To this end, we considered a bayesian  
 
-
-For the Income prediction:
-
-Generation of the Income ground truth
-
-In order to infer the socioeconomic level of users on the social graph we take advantage of both, banking data of monthly salaries in a subset of users and high order correlations given by link connections in our cellphone communication graph. 
-First of all, we define our ground truth of monthly salary per user by considering banking data of salaries. More precisely, by a given user in our graph $u_i$ we compute his/her average monthly wage, we as the average user in a six month windows.  
+As part of the dataset from the bank \( B \), we have the monthly salaries of most bank users \( B_{S_0} \cdots B_{S_t} \) for a period \( t \) larger than \( M \). To infer the monthly salary of the users we take the average of \( B_{S_i} \) for a period of \( 6 \) months and we compare them with other users' salaries by using the link correlations in \( G_N \).
 
 In order to propagate the income prediction to others users in our graph, we address a statistical inference of income categories in our directed graph. To this end, we first have checked a underlaying the hypothesis of homophily, i.e that users of high socioeconomic level trends to relate with others of similar status.
-
-
-Prediction for the neighbors
 
