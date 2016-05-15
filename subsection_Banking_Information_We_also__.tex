@@ -1,8 +1,12 @@
 \subsection{Banking Information}
 
-We also use information about deposits, withdrawals, and other transactions made by users from one of the largest banks in Mexico. Some of those have data about their phone numbers which is anonymized in the same way as CDRs, so this data can be correlated with the phone data. We use the data from the same \( M \) month period, denoted by \( B \), which include for each user up to 4 phones \( t_0, \cdots, t_3 \), and information about the dollar amount of its transactions \( s_0, \cdots, s_n \).
+The dataset used in this study also contains information about account from a big bank in Mexico for a period of 6 months, denoted \( \mathlarger{B} \). Each bank dataset \( b \in \mathlarger{B} \) contains one phone number \( b_p \), which is anonymized with the same hash function user in \( \mathlarger{P} \), and the real income of this person in the 6 months \( b_{s_0}, \ldots, b_{s_5} \). We average these 6 values to get \( b_s \), a measurement of a user's income.
 
-Just like the previous dataset, \( B \) contains a great amount of data about users that don't belong to the telco. We define \( B_N \) as the bank users which belong to the telco: \( \left( \forall \left( t_0, \cdots, t_3 \right) \in \text{phones}\left( B_N \right) \right) \left( \exists i \right) t_i \in N \).
+The bank also provides self-reported personal data about the users: \( b_a \), the age of the user, and \( b_g \), its gender. We use this data to manage biases in the inference algorithm, and to measure homophily with user data other than income.
+
+\subsection{Bank and Telco Matching}
+
+Thanks to \( b_p \) being anonimized in the same way that \( p_o \) and \( p_d \), we can match bank users to their mobile phones
 
 \subsection{Telco Ground Truth}
 
@@ -13,4 +17,5 @@ To support the study, we got results from the lastest mexican census \cite{mexic
 \subsection{Demographic Inference}
 
 Given the set of gender and age data in the Ground Truth \( \left| G_{GT} \right| = 1805534 \), and the set of calls made by the users, we can use the Reaction Diffusion algorithm \cite{brea2014} to extend the inference to all of \( G_N \).
+
 
