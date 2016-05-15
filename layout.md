@@ -4,7 +4,6 @@ section_Introduction_Recent_years_have__.tex
 sectionIntroduction_.tex
 subsection_Banking_Information_The_dataset__.tex
 figures/gender_age_bar1/gender_age_bar1.png
-subsection_bank_telco_matching.tex
 figures/sei_hist/sei_hist.png
 figures/sei_age_heatmap/sei_age_heatmap.png
 1.tex
