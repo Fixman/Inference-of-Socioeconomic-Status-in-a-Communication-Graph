@@ -10,10 +10,12 @@
 
 %\sout{To infer the monthly salary of the users we take the average of \( B_{S_i} \) for a period of \( 6 \) moths to generate \( B_S \), and we compare them with other users' salaries by using the link correlations in \( G_N \).}
 
-One of the major goals in this work is to estimate the income for users in our graph without information from the bank (i.e. for each user $g_k \in G $ $\$ $g_k \notin \ g_s $). To this end, we take advantage of both, the income information contained in our bank clients \(g_s\) and the user´s relations given for the calls records. 
+One of the major goals in this work is to estimate the income for users in our graph without information from the bank (i.e. for each user $g_k \in G $ $\ g_k \notin g_s$). To this end, we take advantage of both, the income information contained in our bank clients ($g_s$) and the user´s relations given for the calls records. \\
+
 First of all we highlight the presence of homophily regarding to income status, i.e. that telco user´s with a given socioeconomic level trends to communicate with others of the same status (Figure XXX, Spearman´s Rank correlation $\rho= 0.474$, p-val$<10^{-6}$). 
 
-Then we take advantage of the observed homophily to propagate income information contained in our seeds $g_s$ and address a statistical inference of income status for the remaining graph. 
+Then we take advantage of the observed homophily to propagate income information contained in our seeds $g_s$ and address a statistical inference of income status for the remaining graph. \\
+
 First of all, we define 5 income categories defined ad-hock according to our use case relevance. These categories were split in ranges $c_1=[1K,2.5K]$; $c_2=[2.5K,7.5K]$; $c_3=[7.5K,20K]$;$c_4=[20K,50K]$; $c_5=[50K,+ \infty]$.  In this way, our goal was to infer an income category for users $g_k$ having at lest one directed graph link to users in $g_s$ (given for $CDR$  $p\in P$). For each user in $g_k$ we compute its call distribution across the defined income categories $c_i$ and denote it as a multidimensional vector $\alpha =(\alpha_i); i \in [1_5]$ defined as the fraction of records p_k that user k had in income category $c_i$. 
 
 %To this end, we first have checked a underlaying the hypothesis of homophily, i.e that users of high socioeconomic level trends to relate with others of similar status.
