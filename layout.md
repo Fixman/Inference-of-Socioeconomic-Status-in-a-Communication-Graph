@@ -7,6 +7,7 @@ figures/gender_age_bar3/gender_age_bar3.png
 figures/income_age_boxplot/income_age_boxplot.png
 figures/income_age_boxplot1/income_age_boxplot1.png
 figures/income_age_boxplot2/income_age_boxplot2.png
+figures/income_age_boxplot3/income_age_boxplot3.png
 subsection_Bank_and_Telco_Matching__.tex
 figures/sei_age_heatmap/sei_age_heatmap.png
 1.tex
