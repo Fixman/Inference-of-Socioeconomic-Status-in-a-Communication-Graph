@@ -24,7 +24,7 @@ Using this coefficient, we get a correlation of \( \num{0.474} \), whith a P-val
 
 Then we take advantage of the observed homophily to propagate income information contained in our seeds $g_s$ and address a statistical inference of income status for the remaining graph. \\
 
-Then we define ad-hock 5 income categories according to our use case interest and relevance. These categories were split in ranges $c_1=[1K,2.5K]$; $c_2=[2.5K,7.5K]$; $c_3=[7.5K,20K]$;$c_4=[20K,50K]$; $c_5=[50K,+ \infty]$.  In this way, our goal was to infer an income category $c_i$ for each user $g_k$ having at lest one directed graph link to users in $g_s$ (given for $CDR$ records  $p\in P$).\\
+As previous data cleaning, we remove outliers in the income distribution (dropping users above the quantile 0.99) and disregard users with insufficient income information (here we drop users with less than $1000\$$). Then we define 2 balanced income categories according to the median of the resulting income distribution and we called it $c_l$ (low income) and $c_h$ (high income). In this way, our goal was to infer an income category $c_l$ or $c_h$ for each user $g_k$ having at lest one directed graph link to users in $g_s$ (given for $CDR$ records  $p\in P$).\\
 
 
 
