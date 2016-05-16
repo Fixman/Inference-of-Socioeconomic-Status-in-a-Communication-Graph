@@ -5,7 +5,6 @@ sectionIntroduction_.tex
 subsection_Banking_Information_The_dataset__.tex
 figures/gender_age_bar3/gender_age_bar3.png
 subsection_Bank_and_Telco_Matching__.tex
-figures/gender_age_bar1/gender_age_bar1.png
 figures/sei_age_heatmap/sei_age_heatmap.png
 1.tex
 section_Inference_Methodology_For_the__.tex
