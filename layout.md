@@ -4,6 +4,7 @@ section_Introduction_Recent_years_have__.tex
 sectionIntroduction_.tex
 subsection_Banking_Information_The_dataset__.tex
 figures/gender_age_bar3/gender_age_bar3.png
+figures/income_age_boxplot/income_age_boxplot.png
 subsection_Bank_and_Telco_Matching__.tex
 figures/sei_age_heatmap/sei_age_heatmap.png
 1.tex
