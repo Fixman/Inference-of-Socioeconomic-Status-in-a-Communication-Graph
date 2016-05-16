@@ -6,7 +6,6 @@ subsection_Banking_Information_The_dataset__.tex
 figures/gender_age_bar3/gender_age_bar3.png
 figures/income_age_boxplot3/income_age_boxplot3.png
 subsection_Bank_and_Telco_Matching__.tex
-figures/sei_age_heatmap/sei_age_heatmap.png
 1.tex
 section_Inference_Methodology_For_the__.tex
 figures/Homophily_income_origin_target_1/Homophily_income_origin_target_1.png
