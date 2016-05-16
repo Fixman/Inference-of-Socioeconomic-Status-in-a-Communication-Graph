@@ -5,6 +5,7 @@ sectionIntroduction_.tex
 subsection_Banking_Information_The_dataset__.tex
 figures/gender_age_bar3/gender_age_bar3.png
 figures/income_age_boxplot3/income_age_boxplot3.png
+figures/income_age_boxplot4/income_age_boxplot4.png
 subsection_Bank_and_Telco_Matching__.tex
 1.tex
 section_Inference_Methodology_For_the__.tex
