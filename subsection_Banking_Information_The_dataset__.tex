@@ -1,5 +1,7 @@
 \subsection{Banking Information}
 
-The dataset used in this study also contains information about account from a big bank in Mexico for a period of 6 months, denoted \( \mathlarger{B} \). Each bank dataset \( b \in \mathlarger{B} \) contains one phone number \( b_p \), which is anonymized with the same hash function user in \( \mathlarger{P} \), and the real income of this person in the 6 months \( b_{s_0}, \ldots, b_{s_5} \). We average these 6 values to get \( b_s \), a measurement of a user's income.
 
-The bank also provides self-reported personal data about the users for a subset \( A \) of the dataset \( B \). For each \( a \in A \), we have \( a_a \), the age of the user, and \( a_g \), its gender. We use this data to manage biases in the inference algorithm, and to measure homophily with user data other than income. We can later use the Reaction Diffusion algorithm \cite{brea2014} to extend the age and gender inference to all of \( B \).
+For this study we used account balances for over 10 million clients of a bank in Mexico for a period of 6 months, denoted \( \mathlarger{B} \). 
+The account balance for each client \( b \in \mathlarger{B} \) contains his phone number \( b_p \), anonymized with the same hash function used in \( \mathlarger{P} \), and the reported income of this person over 6 months \( b_{s_0}, \ldots, b_{s_5} \). We average these 6 values to get \( b_s \), an estimate of a user's income.
+
+The bank also provided us with demographic information for a subset \( A \) of the dataset \( B \). For each \( a \in A \), we are given  the age \( a_a \) and the gender \( a_g \) of the user. This allowed us to observe differences in the income distribution according to the age and gender. In another line of work, homophily respect to the age has been observed in \cite{brea2014} and used to generate inferences.
