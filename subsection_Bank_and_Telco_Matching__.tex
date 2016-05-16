@@ -1,5 +1,7 @@
 \subsection{Bank and Telco Matching}
 
+Since the phone numbers in each call of the telco data $ p_o $ and $ p_d $ are anonymized with the same hash function as the phone number in the bank data, $ b_p $, we can create another social graph $ G = \bowtie $.
+
  bp in the bank data set and those in the telco CDRs , we can match a bank user to a unique phones in the telco social graph GG. We are thus able match 2,027,554 pairs of linked telco users to their bank data with 5,044,976 edges among each other. This set of edges resulted from a total of 29,599,762 calls and 5,476,783 SMS.
 
 Given that users' phone numbers \( b_p \) in the bank dataset and those in the telco CDRS \( p_o \) and \( p_d \) are anonymized with a unique hash for a given phone number, we can match bank users to their mobile phones in the social graph $ G $, and add income data to \( G \). The subset of calls \( H \subseteq G \) where both users have income information from the bank has \num{2,027,554} users, and \num{5,044,976} edges which represent \num{29,599,762} calls and \num{5,476,783} SMS.
