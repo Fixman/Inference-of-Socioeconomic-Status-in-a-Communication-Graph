@@ -13,7 +13,7 @@
 The major goal of this work is to estimate the income for users belonging to the graph and not having income information in the graph \(i.e. $g_i \in G $ and $g_i \notin \ g_s $\). To this end, we take advantage of both, the income information contained in our bank clients \(g_s\) and the user´s relations given for the calls records. 
 First of all we highlight the presence of homophily regarding to income status, i.e. that telco user´s with a given socioeconomic level trends to communicate with others of the same status (Figure XXX, Spearman´s Rank correlation $\rho= 0.474$, p-val$<10^{-6}$). 
 
-Then we take advantage of the observed homophily to propagate the income information contained in our seeds $g_s$ and address a statistical inference of income status in our directed graph. 
-
+Then we take advantage of the observed homophily to propagate income information contained in our seeds $g_s$ and address a statistical inference of income status for the remaining graph. 
+First of all, we define 5 income categories defined ad-hock according to our use case relevance. These categories are split in the ranges $c_1=[1K,2.5K];c_2=[2.5K,7.5K];c_3=[7.5K,20K];c_4=[20K,50K];c_5=[50K,+ \infty] $ Our approach considered only users $g_k$ having at lest one directed link to users in $g_s$. For each user in $g_k$ we compute the calls distribution    
 %To this end, we first have checked a underlaying the hypothesis of homophily, i.e that users of high socioeconomic level trends to relate with others of similar status.
 
