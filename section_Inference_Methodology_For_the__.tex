@@ -10,17 +10,13 @@
 
 %\sout{To infer the monthly salary of the users we take the average of \( B_{S_i} \) for a period of \( 6 \) moths to generate \( B_S \), and we compare them with other users' salaries by using the link correlations in \( G_N \).}
 
-The main contribution of this work is to estimate the income of the telco users for which we lack banking data but have bank clients in their neighborhood of network graph. To show the feasibility of this task we first show the existence of a strong income homophily in the telco graph as is evidenced in .
-
-For each pair \( \left< o, d \right> \in {G_N}_L \) we define \( X \), as the set of incomes for callers and \( Y \) as the set of incomes for callees. According to hour hypothesis, \( X \) and \( Y \) should have a significant correlation.
-
-We can use the \textbf{Spearman's rank correlation coefficient} to test the statistical dependence of the sets \( X \) and \( Y \). This is an improvement over the usual Pearson correlation coefficient in that we compare the ranks of each datapoint, and therefore we get a good coefficient on both people with low and high income levels.
+The main contribution of this work is to estimate the income of the telco users for which we lack banking data but have bank clients in their neighborhood of network graph. To show the feasibility of this task we first show the existence of a strong income homophily in the telco graph as is evidenced in Figure x. For each pair \( \left< o, d \right> \in {G_N}_L \) we define \( X \), as the set of incomes for callers and \( Y \) as the set of incomes for callees. According to what we can observe in Figure x, \( X \) and \( Y \) should be significantly correlated. Given the broad non gaussian distribution of the income's values, we choose to use a rank based measure of correlation, namely the Spearman's rank correlation to test the statistical dependence of sets \( X \) and \( Y \). Equation for the Spearman's correlation follows below: 
 
 \[
 r_s = \mathlarger{\rho}_{\operatorname{rank}(X) \operatorname{rank}(Y)} = \frac{\operatorname{cov}(\operatorname{rank}(x), \operatorname{rank}(y))}{\sigma_{\operatorname{rank}(X)} \sigma_{\operatorname{rank}(Y)}}
 \]
 
-Using this coefficient, we get a correlation of \( \num{0.474} \), where the P-value of the null hypothesis, which hypothesizes that the income level between callers and callee isn't correlated is \( P < 10^{-6} \).
+Using this coefficient, we get a correlation of \( \num{0.474} \), whith a P-value of \( P < 10^{-6} \) with respect to the null hypothesis where links between users are selected randomly preserving the total amount of links as in the original graph.
 
 
 
