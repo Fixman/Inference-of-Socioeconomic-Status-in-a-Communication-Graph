@@ -12,4 +12,12 @@ Condition Positive & \cellcolor{green} True Positive & \cellcolor{red} \makecell
 Condition Negative & \cellcolor{red} \makecell{False Positive \\ (Type I Error)} & \cellcolor{green} True Positive \\
 \end{tabularx}
 
-To validate this, we use a \textbf{Received Operating Characteristic Curve} to calculate 
+To validate this, we use a \textbf{Received Operating Characteristic Curve} to plot the \textbf{True Positive Rate} and the \textbf{False Positive Rate} of the system. Since the amount of people in each classification group is mostly equal, a random guess would give a point along the diagonal line.
+
+As an objective measurement, we can calculate the \textbf{Area under the curve} as the change that the classified will rank a randomly chosen instance of a wealthy user higher than a randomly chosen instance of a poor one.
+
+\begin{align*}
+TPR(T) &= \int^{\infty}_T f_1(x) \mathrm{d}x \\
+FPR(T) &= \int^{\infty}_T f_0(x) \mathrm{d}x \\
+A &= P(X_1 > X_0) = \int^{-\infty}_{\infty} \operatorname{TPR}(T) 
+\end{align*}
