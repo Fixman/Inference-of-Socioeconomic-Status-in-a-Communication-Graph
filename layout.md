@@ -13,4 +13,5 @@ More_precisely_we_compute_for__.tex
 More_precisely_we_compute_for__2.tex
 We_can_use_the_textbf__.tex
 section_Results_subsection_Validation_Process__.tex
+subsection_Temas_Ariel_1_Describir__.tex
 More_precisely_we_compute_for__1.tex
