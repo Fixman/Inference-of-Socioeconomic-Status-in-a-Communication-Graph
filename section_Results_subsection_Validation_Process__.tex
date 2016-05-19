@@ -17,7 +17,7 @@ To validate this, we use a \textbf{Received Operating Characteristic Curve} to p
 As an objective measurement, we can calculate the \textbf{Area under the curve} as the change that the classified will rank a randomly chosen instance of a wealthy user higher than a randomly chosen instance of a poor one; for this we define the density functions $ f_1(x) $ as the probabilty function that a user will be classified as wealthy, and $ f_0 $ otherwise.
 
 \begin{align*}
-\operatorname{TPR}(T) &= \int^{\infty}_T f_1(x) \mathrm{d}x \\
-\operatorname{FPR}(T) &= \int^{\infty}_T f_0(x) \mathrm{d}x \\
-A = P(X_1 > X_0) &= \int^{-\infty}_{\infty} \operatorname{TPR}(T) \operatorname{FPR}(T) \mathrm{d}T
+\operatorname{TPR}(T) &= \int^{\infty}_T f_1(x) dx \\
+\operatorname{FPR}(T) &= \int^{\infty}_T f_0(x) dx \\
+A = P(X_1 > X_0) &= \int^{-\infty}_{\infty} \operatorname{TPR}(T) \operatorname{FPR}(T) \dT
 \end{align*}
