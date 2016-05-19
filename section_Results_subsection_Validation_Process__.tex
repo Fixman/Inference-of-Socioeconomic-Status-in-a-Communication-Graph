@@ -6,7 +6,7 @@ We need to make sure that our inference algorithm correctly predicts users' inco
 
 We can use this prediction method to classify the links between users in $ G $ for which we know the income using this hypothesis into four classes depending on the group of each member of the link:
 
-\begin{tabularx}{\textwidth}{|r|c|c|}
+\begin{tabularx}{\textwidth}{ r c c }
 & Predicted Wealthy Group & Predicted Poor Group \\
 Condition Positive & \cellcolor{green} True Positive & \cellcolor{red} \makecell{False Negative \\ (Type II Error)} \\ 
 Condition Negative & \cellcolor{red} \makecell{False Positive \\ (Type I Error)} & \cellcolor{green} True Positive \\
