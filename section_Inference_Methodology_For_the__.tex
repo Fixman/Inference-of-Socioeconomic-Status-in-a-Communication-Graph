@@ -10,20 +10,16 @@
 
 %\sout{To infer the monthly salary of the users we take the average of \( B_{S_i} \) for a period of \( 6 \) moths to generate \( B_S \), and we compare them with other users' salaries by using the link correlations in \( G_N \).}
 
-The main contribution of this work is to estimate the income of the telco users for which we lack banking data but have bank clients in their neighborhood of network graph. To show the feasibility of this task we first show the existence of a strong income homophily in the telco graph as is evidenced in Figure x. For each pair \( \left< o, d \right> \in G \) we define \( X \) as the set of incomes for callers and \( Y \) as the set of incomes for callees. According to what we can observe in Figure x, \( X \) and \( Y \) should be significantly correlated. Given the broad non gaussian distribution of the income's values, we choose to use a rank based measure of correlation, namely the \textbf{Spearman's rank correlation} to test the statistical dependence of sets \( X \) and \( Y \) using the following formula: 
+The main contribution of this work is the estimation of the income of the telco users for which we lack banking data but have bank clients in their neighborhood of network graph. To show the feasibility of this task we first show the existence of a strong income homophily in the telco graph as is evidenced in Figure x.
+
+For each pair \( \left< o, d \right> \in \mathlarger{G} \) we define \( X \) as the set of incomes for callers and \( Y \) as the set of incomes for callees. According to what we can observe in Figure x, \( X \) and \( Y \) should be significantly correlated. Given the broad non gaussian distribution of the income's values, we choose to use a rank based measure of correlation, namely the \textbf{Spearman's rank correlation} to test the statistical dependence of sets \( X \) and \( Y \) using the following formula: 
 
 \[
 r_s = \mathlarger{\rho}_{\operatorname{rank}(X) \operatorname{rank}(Y)} = \frac{\operatorname{cov}(\operatorname{rank}(x), \operatorname{rank}(y))}{\sigma_{\operatorname{rank}(X)} \sigma_{\operatorname{rank}(Y)}}
 \]
 
-This coefficient gives us a correlation of \num{0.474} with a P-value $ P < 10^{-6} $  with respect to the null hypothesis, where links between users are selected randomly preserving the total amount of links as in the original graph.
+If we compare our data with a randomized null hypothesis, where links between users are selected randomly disregarding income data, this coefficient gives us a correlation of \num{0.474} with a P-value of $ P < 10^{-6} $. This is significant enough to show that there is a significant amount of homophily between users' incomes in our data.
 
-%First of all we highlight an homophily trend regarding to income status, i.e. that \textit{telco} user´s with a given socioeconomic level trends to communicate with others of the same status (Figure XXX, Spearman´s Rank correlation $\rho= 0.474$, p-val$<10^{-6}$). 
+We can take advantage of this homophily to propagate income information to the rest of our graph $ \mathlarger{P} $, where we don't know the income of all of the users.
 
-Then we take advantage of the observed homophily to propagate income information contained in our seeds $g_s$ and address a statistical inference of income status for the remaining graph. \\
-
-As previous data cleaning, we remove outliers in the income distribution (dropping users above the quantile 0.99) and disregard users with insufficient income information (here we drop users with less than $1000\$$). Then we define 2 balanced income categories according to the median of the resulting income distribution and we called it $c_l$ (low income) and $c_h$ (high income). In this way, our goal was to infer an income category $c_l$ or $c_h$ for each user $g_k$ having at lest one directed graph link to users in $g_s$ (given for $CDR$ records  $p\in P$).\\
-
-
-
-%To this end, we first have checked a underlaying the hypothesis of homophily, i.e that users of high socioeconomic level trends to relate with others of similar status.
+To achieve this, we define 2 balanced income categories according to the median of the resulting income distribution: the set $ \mathlarger{G}_W $ of \textbf{Wealthy people}, whose income is on the upper half of the dataset, and the set $ \mathlarger{G}_P $ of \textbf{Poor people}, whose income is on the lower half. We should be able to predict if a used in $ \mathlarger{P} $ is on the upper or lower income category with the information of the links to other users.

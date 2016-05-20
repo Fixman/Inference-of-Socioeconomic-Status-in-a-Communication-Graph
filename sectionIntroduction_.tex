@@ -2,18 +2,13 @@
 
 \subsection{Mobile Phone Data Source}
 
-The data used in this study consist of a set \( \mathlarger{P} \) of \textbf{Call Detail Records} (CDRs), made up of voice calls and text messages from a Mexican telecommunication company (\textit{telco}) for a 3 months period.
-Every CDR \( p \in \mathlarger{P} \)  contains the anonimized phone numbers of the caller and callee \( \left< p_o, p_d \right> \), the start time \( p_t \), and the call duration \( p_s \) in the case voice calls. 
-For a subset of the voice calls, the latitude and longitude of the antenna being used \( \left< p_y, p_x \right> \), is also given.
+The data used in this study consist of a set \( \mathlarger{P} \) of \textbf{Call Detail Records} (CDRs), composed of voice calls and text messages from a Mexican telecommunication company (\textit{telco}) for a 3 month long period.
+Every CDR \( p \in \mathlarger{P} \)  contains the anonimized phone numbers of the caller and callee \( \left< p_o, p_d \right> \), the start time \( p_t \), and, in the case of voice calls, the call duration \( p_s \). 
+The latitude and longitude of the antennae used for the calls \( \left< p_y, p_x \right> \), are also given for a small subset of the data.
 
-The data used in this study consist of a set P of Call Detail Records (CDRs), made up of voice calls and text messages from a Mexican telco company for a 3 month period. Every CDR $ p \in P $ contains the anonimized phone numbers of the caller and the collee $ \left< po, pd \right> $, the start time ptpt, and an the duration if it is a voice call. For a subset of the voice calls, the latitude and longitude of the antena being used, $ \left< py, px \right> $ is also given.
+Given that our collection \( \mathlarger{P} \) of CDRs are coming from the same telephone company, we are able to reconstruct all communication links between clients of this company, as well as communications between the clients and other users, but we have no information on comunications where neither users are clients of our telco company.
 
+If we define \( N \) as the users of the telco, and \( \mathlarger{P}_N \subseteq \mathlarger{P} \) as the calls where \( \left( \forall p \in \mathlarger{P}_N \right) p_o \in N \wedge p_d \in N \), we can create a communications graph \( \mathlarger{G} \) which contains only the users from the telco and all of the calls between them.
 
-Given that our collection \( \mathlarger{P} \) of CDRs are
-coming from one telephone company, 
-we are able to reconstruct all communication links among clients of this company, as well as communications between clients and other users, but we are blind to comunications where neither users are clients of our telco company.
-If we define \( N \) as the users of the telco, and \( \mathlarger{P}_N \subset \mathlarger{P} \) as the calls where \( \left( \forall p \in \mathlarger{P}_N \right) p_o \in N \wedge p_d \in N \), we can create a communications graph \( \mathlarger{G} \) which contains all the users from the telco and all their calls.
+With the data provided to us by the telco, \( \mathlarger{G} \) contains \num{72107108} users who made \num{72107108} calls and sent \num{634225740} text messages in this period of 3 months.
 
-Given that our collection P of CDRs are comming fom only one telco companay, we are able to reconstruct all comunication links among clients of this comapany, as well as communications between clients and other users, but we are blind to comunications where neither users are clients of our telco company.
-
-With the data provided to us by the telco, \( \mathlarger{G} \) contains \num{72107108} users who made \num{72107108} calls and sent \num{634225740} text messages.

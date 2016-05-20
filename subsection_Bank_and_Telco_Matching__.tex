@@ -1,3 +1,14 @@
 \subsection{Bank and Telco Matching}
 
-Since the phone numbers in each call of the telco data $ p_o $ and $ p_d $ are anonymized with the same hash function as the phone number in the bank data, $ b_p $, we can match users to his unique phone create another social graph $ G = P \bowtie_{_{p_o = b_p}} B \bowtie_{_{p_d = b_p}} B $ which includes income information to the subset of the social graph that appears in the bank data. This graph represents has \num{2027554} nodes with \num{5044976} edges, representing \num{29599762} calls and \num{5476783}.
+Since the phone numbers in each call of the telco data $ p_o $ and $ p_d $ are anonymized with the same hash function as the phone number in the bank data, $ b_p $, we can match users to his unique phone create another social graph $ G = P \bowtie_{_{p_o = b_p}} B \bowtie_{_{p_d = b_p}} B $ which includes income information to the subset of the social graph that appears in the bank data.
+This graph has a total of \num{2027554} nodes with \num{5044976} edges, which represent \num{29599762} calls and \num{5476783}.
+
+\subsection{Outlier filtering}
+
+The dataset contains information about bank and telco users, some of which may not directly correspond to a human user who exclusively users the telco and the bank used in this study, or may have no useful information for our research. Most of the telco users in the first case are already filtered by the intersection (\textsc{inner join}). To make sure the users are relevant enough to this work, we only use the users which have:
+
+\begin{itemize}
+	\item More than 5 calls in either direction.
+	\item A monthly income of at least \$\num{1000}.
+	\item A monthly income in the \num{0.99}th percentile.
+\end{itemize}
