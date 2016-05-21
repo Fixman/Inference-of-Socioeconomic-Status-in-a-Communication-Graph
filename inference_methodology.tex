@@ -23,3 +23,13 @@ If we compare our data with a randomized null hypothesis, where links between us
 We can take advantage of this homophily to propagate income information to the rest of our graph $ \mathlarger{P} $, where we don't know the income of all of the users.
 
 To achieve this, we define 2 balanced income categories according to the median of the resulting income distribution: the set $ \mathlarger{G}_W $ of \textbf{Wealthy people}, whose income is on the upper half of the dataset, and the set $ \mathlarger{G}_P $ of \textbf{Poor people}, whose income is on the lower half. We should be able to predict if a used in $ \mathlarger{P} $ is on the upper or lower income category with the information of the links to other users.
+
+\begin{figure}[]
+\begin{center}
+\includegraphics[width=1\columnwidth]{figures/Homophily_income_origin_target_1/Homophily_income_origin_target_1.png}
+\caption{ \protect\input{figures/Homophily_income_origin_target_1/caption}}
+\end{center}
+\end{figure}
+
+More precisely, we compute for each user $ g \in \mathlarger{G} $, we define its call distribution across the defined income categories as $ \alpha_1 $, the fraction of calls to wealthy users, and $ \alpha_0 $, the fraction of calls to poor users. These calls distributions were used as the parametrization vector of a \textbf{Dirichlet distribution} $D(\alpha_p)$ for each user $ p \in P $. We can interpret the sample space of $ D(\alpha_p) $ as a discrete probability distribution and considering out initial assumption of data homophily homophily, we expect that users belonging to a certain category tend to be concentrated to this particular category.
+
