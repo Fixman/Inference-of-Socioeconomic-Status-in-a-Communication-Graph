@@ -18,11 +18,9 @@ For each pair \( \left< o, d \right> \in \mathlarger{G} \) we define \( X \) as 
 r_s = \mathlarger{\rho}_{\operatorname{rank}(X) \operatorname{rank}(Y)} = \frac{\operatorname{cov}(\operatorname{rank}(x), \operatorname{rank}(y))}{\sigma_{\operatorname{rank}(X)} \sigma_{\operatorname{rank}(Y)}}
 \]
 
-If we compare our data with a randomized null hypothesis, where links between users are selected randomly disregarding income data, this coefficient gives us a correlation of \num{0.474} with a P-value of $ P < 10^{-6} $. This is significant enough to show that there is a significant amount of homophily between users' incomes in our data.
+If we compare our data with a randomized null hypothesis, where links between users are selected randomly disregarding income data, this coefficient gives us a correlation of $ \mathbf{0.474} $ with a P-value of $ \mathbf{P < 10^{-6}} $. This is significant enough to show that there is an important amount of homophily between users' incomes in our data.
 
 We can take advantage of this homophily to propagate income information to the rest of our graph $ \mathlarger{P} $, where we don't know the income of all of the users.
-
-To achieve this, we define 2 balanced income categories according to the median of the resulting income distribution: the set $ \mathlarger{G}_W $ of \textbf{Wealthy people}, whose income is on the upper half of the dataset, and the set $ \mathlarger{G}_P $ of \textbf{Poor people}, whose income is on the lower half. We should be able to predict if a used in $ \mathlarger{P} $ is on the upper or lower income category with the information of the links to other users.
 
 \begin{figure}[h]
 \begin{center}
@@ -32,5 +30,26 @@ To achieve this, we define 2 balanced income categories according to the median 
 \end{center}
 \end{figure}
 
-More precisely, we compute for each user $ g \in \mathlarger{G} $, we define its call distribution across the defined income categories as $ \alpha $, where $ \alpha_1 $ is the the fraction of calls to wealthy users and $ \alpha_0 $ is the fraction of calls to poor users. These calls distributions were used as the parametrization vector of a \textbf{Dirichlet distribution} $D(\alpha_p)$ for each user $ p \in P $. We can interpret the sample space of $ D(\alpha_p) $ as a discrete probability distribution and considering out initial assumption of data homophily homophily, we expect that users belonging to a certain category tend to be concentrated to this particular category.
+\subsection{Prediction algorithm}
 
+To define the result of the prediction in exact terms, we discretize the income distribution into 5 equally sized groups, $ H_1, \ldots, H_5 $ of increasing wealth, where
+
+\[
+\left( \forall g \in H_i, g' \in H_{i + 1} \right) g_s < g'_s
+\]
+
+For each user $ g \in \mathlarger{G} $ we define its call distribution to other income categories as $ g_{\alpha_1} \ldots g_{\alpha_5} $, and we use those distrubutions as the parametrization of a \textbf{Dirichlet Distribution}. We interpret the sample space of $ D(\alpha_p) $ as a discrete probability distribution by considering our initial assumption of data homophily, where we expect users belonging to a certain category to have calls concentrated to other users of that particular one.
+
+Each user has a caller category probability density function of the form
+
+\[
+f \left( x_1, \ldots, x_5; \alpha_1, \ldots, \alpha_5 \right) = \frac{1}{\Beta \left( \alpha \right)} \prod^5_{i = 1} x_i^{\alpha_i - 1}
+\]
+
+Where $ \Beta $ represents the Beta function,
+
+\[
+\Beta \left( \alpha_1, \ldots, \alpha_k \right) = \frac{\prod^k_{i = 1} \Gamma \! \left( \alpha_i \right)}{\Gamma \! \left( \sum^k_{i = 1} \alpha_i \right) }
+\]
+
+For all the other users in the telco $ q \in Q = (N \setminus G) $, we can use this distribution to infer the probabilities of being part of each group $ H_1, \ldots, H_5 $, and this way approximate the economic status.
