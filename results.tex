@@ -18,7 +18,7 @@ Callee not in group & \cellcolor{red} \makecell{False Positive \\ (Type I Error)
 \end{tabu}
 \end{adjustwidth}
 
-To validate these classifiers, we use a \textbf{Received Operating Characteristic Curve} to plot the \textbf{True Positive Rate} and the \textbf{False Positive Rate} of each system. Since the amount of people in each group is almost equal, randonly guessing each user's income would result in a diagonal line.
+To validate these classifiers, we use a \textbf{Receiver Operating Characteristic Curve} to plot the \textbf{True Positive Rate} and the \textbf{False Positive Rate} of each system. Since the amount of people in each group is almost equal, randonly guessing each user's income would result in a diagonal line.
 
 As an objective measurement, we can calculate the \textbf{Area under the curve} for each income group as the chance that the classifier would make a better prediction of the composition of this income group better than a random one. For this we define the density functions $ f_i(x) $ as the probability that a user will be considered part of the income group $ H_i $, and $ g_i(x) $ as the probability that it won't. This way we can characterize the True Positive Rate and the False Positive Rate for each group as
 
