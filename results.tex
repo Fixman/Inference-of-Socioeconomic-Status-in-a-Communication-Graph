@@ -2,28 +2,58 @@
 
 \subsection{Validation Process}
 
-We need to make sure that our inference algorithm correctly predicts users' income, we create a binary classifier between two equally sized groups, \textbf{wealthy} users and \textbf{poor} users. Our hypothesis is that if there's a link connecting two users then both of them will be in the same group.
+We need to make sure that our inference algorithm correctly predicts users' income in each of the 5 categories $ H_1, \ldots, H_5 $. According to our hypothesis, if there's a link connecting two users then there's a high probability that both of them will belong to the same group.
 
-We can use this prediction method to classify the links between users in $ G $ for which we know the income using this hypothesis into four classes depending on the group of each member of the link:
+For each link $ p = \left< p_o, p_d, \ldots \right> \in P $, our hypothesis says that $ p_o $ and $ p_d $ will belong to the same income group. In particular, we can create 5 binary classifiers, one for each income group, which can take one of four results depending on whether the caller or the calee belong to it.
 
-\begin{tabularx}{\textwidth}{ r c c }
-& Predicted Wealthy Group & Predicted Poor Group \\
-Condition Positive & \cellcolor{green} True Positive & \cellcolor{red} \makecell{False Negative \\ (Type II Error)} \\ 
-Condition Negative & \cellcolor{red} \makecell{False Positive \\ (Type I Error)} & \cellcolor{green} True Positive \\
-\end{tabularx}
+\vspace{1em}
 
-To validate this, we use a \textbf{Received Operating Characteristic Curve} to plot the \textbf{True Positive Rate} and the \textbf{False Positive Rate} of the system. Since the amount of people in each classification group is mostly equal, a random guess would give a point along the diagonal line.
+\begin{adjustwidth}{-1.5cm}{}
+\begin{tabu} to \textwidth { r X[c] X[c] }
+& \multicolumn{2}{ c }{\textbf{Classifier result for income group $ H_i $}} \\
+\\
+& Caller in group & Caller not in group \\
+Callee in group & \cellcolor{green} True Positive & \cellcolor{red} \makecell{False Negative \\ (Type II Error)} \\ 
+Callee not in group & \cellcolor{red} \makecell{False Positive \\ (Type I Error)} & \cellcolor{green} True Negative \\
+\end{tabu}
+\end{adjustwidth}
 
-As an objective measurement, we can calculate the \textbf{Area under the curve} as the change that the classified will rank a randomly chosen instance of a wealthy user higher than a randomly chosen instance of a poor one; for this we define the density functions $ f_1(x) $ as the probabilty function that a user will be classified as wealthy, and $ f_0 $ otherwise.
+To validate these classifiers, we use a \textbf{Received Operating Characteristic Curve} to plot the \textbf{True Positive Rate} and the \textbf{False Positive Rate} of each system. Since the amount of people in each group is almost equal, randonly guessing each user's income would result in a diagonal line.
+
+As an objective measurement, we can calculate the \textbf{Area under the curve} for each income group as the chance that the classifier would make a better prediction of the composition of this income group better than a random one. For this we define the density functions $ f_i(x) $ as the probability that a user will be considered part of the income group $ H_i $, and $ g_i(x) $ as the probability that it won't. This way we can characterize the True Positive Rate and the False Positive Rate for each group as
+
+\vspace{-1em}
 
 \begin{align*}
-\operatorname{TPR}(T) &= \int^{\infty}_T f_1(x) dx \\
-\operatorname{FPR}(T) &= \int^{\infty}_T f_0(x) dx \\
-A = P(X_1 > X_0) &= \int^{-\infty}_{\infty} \operatorname{TPR}(T) \operatorname{FPR}(T) dT
+\operatorname{TPR}_i(T) &= \int^{\infty}_T f_i(x) dx \\
+\operatorname{FPR}_i(T) &= \int^{\infty}_T g_i(x) dx \\
 \end{align*}
+
+\vspace{-1.5em}
+
+With this two functions, we can define the AUC for each category as as a simple integration:
+
+\[
+A_i = P(X_1 > X_0) = \int^{-\infty}_{\infty} \operatorname{TPR_i}(T) \operatorname{FPR_i}(T) dT
+\]
+
+Where $ X_1 $ is the score for a positive instance, and $ X_0 $ is the score for a negative one.
 
 \subsection{Results}
 
+\begin{figure}
+\begin{center}
+\includegraphics[width=\columnwidth]{figures/ROC_multiclass/ROC_multiclass.png}
+\caption{ \protect\input{figures/ROC_multiclass/caption}}
+\label{ROC_multiclass}
+\end{center}
+\end{figure}
 
-To infer this we compute the call distribution for each user $ \mathlarger{G}_W $ to the wealthy category its call distribution to the high income category and denote it as $\alpha)$ . Here $\alpha$ was the fraction of outgoing callas records ($p_k$) that user $g_k$ has to the income category $c_h$. These calls distributions $\alpha_{(k)}$ were used as the parametrization of a Beta distribution $B(\alpha_k)$ for each user $k$. Then, interpreting the sample space of $B(alpha_k)$ as a discrete probability distribution and considering the homophily assumption,  we expected that users belonging to $c_h$ tends to be a concentrated to this particular category. In other words we take the Beta sample space $vec{1-p_h,p_h}$ as a proxy of belonging to different income categories.
+The ROC curves have the following areas:
 
+\begin{align*}
+A_1 &= 0.68 & A_2 &= 0.69 & A_3 &= 0.63 \\ 
+A_4 &= 0.68 & A_5 &= 0.69
+\end{align*}
+
+As evidenced by figure \ref{ROC_multiclass}, the inference process seems to have been successful: the predicted value is much better than one predicted by a random classifier for all of the categories.
