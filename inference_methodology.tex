@@ -32,6 +32,8 @@ We can take advantage of this homophily to propagate income information to the r
 
 \subsection{Prediction algorithm}
 
+Instead of attempting to predict the exact value of a user's income we partition the set of possible income values into five groups that were deemed usefull for the Bank: [1000,2500),[2500,7500),[7500,20000),[20000,50000),[50000,+50000), values are given in Mexican pesos.  
+
 To define the result of the prediction in exact terms, we discretize the income distribution into 5 equally sized groups, $ H_1, \ldots, H_5 $ of increasing wealth, where
 
 \[
