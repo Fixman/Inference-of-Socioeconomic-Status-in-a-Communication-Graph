@@ -48,16 +48,15 @@ where the income ranges are set as follows
 	R_5 &= \left[50000, \infty\right) \\
 \end{align*}
 
-Then, we look for users in our graph having at less one connection link to bank clients in one of these income categories, namely $Q$. For each user $q^j \in Q$, we can compute the frequency of outgoing calls $a^j_i$ to the category $H_i$. Our hypothesis under the observed homophily is that an user $q^j$ with high frequency of calls $a^j_i$ to the $H_i$ category would be probably belonging to $H_i$ income category. In order to formalize this idea, we took into account the frequencies $a^j_i$ of outgoing calls and defined for each user $q^j$ a Dirichlet probability distribution function $D^j$ (\ecref{Dirichlet}):  
-=======
-According to the Dirichlet Distibution, each user has a caller income category probability density function of the form
+Then, we look for users in our graph having at less one connection link to bank clients in one of these income categories, namely $Q$. For each user $q^j \in Q$, we can compute the frequency of outgoing calls $a^j_i$ to the category $H_i$. Our hypothesis under the observed homophily is that an user $q^j$ with high frequency of calls $a^j_i$ to the $H_i$ category would be probably belonging to $H_i$ income category. In order to formalize this idea, we took into account the frequencies $a^j_i$ of outgoing calls and defined for each user $q^j$ a Dirichlet probability distribution function $D^j$ (\eqref{Dirichlet}):  
+
 
 \begin{equation}
 D^j \left( x_1, \ldots, x_5; \alpha^j_1, \ldots, \alpha^j_5 \right) = \frac{1}{\Beta \left( \alpha \right)} \prod^5_{i = 1} x_i^{\alpha^j_i - 1}
 \label{Dirichlet}
 \end{equation}
 
-Where $\alpha^j_i = a^j_i +1$, are the parammeters of de distribution, and $\Beta$ represents the Beta distribution function, deffined according to (\ecref{Beta})
+Where $\alpha^j_i = a^j_i +1$, are the parameters of the Dirichlet distribution, and $\Beta$ represents the Beta distribution function, deffined according to (\eqref{Beta})
 
 \begin{equation}
 \Beta \left( \alpha_1, \ldots, \alpha_k \right) = \frac{\prod^k_{i = 1} \Gamma \! \left( \alpha_i \right)}{\Gamma \! \left( \sum^k_{i = 1} \alpha_i \right) }
@@ -65,6 +64,8 @@ Where $\alpha^j_i = a^j_i +1$, are the parammeters of de distribution, and $\Bet
 \end{equation}
 
 In this way we obtained a Dirichlet distribution for each user $q^j$
+
+
 According to the Dirichlet Distibution, each user has a caller income category probability density function of the form
 
 
