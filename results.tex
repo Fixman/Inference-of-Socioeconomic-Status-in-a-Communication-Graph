@@ -2,9 +2,14 @@
 
 \subsection{Validation Process}
 
-We need to make sure that our inference algorithm correctly predicts users' income in each of the 5 categories $ H_1, \ldots, H_5 $. According to our hypothesis, if there's a link connecting two users then there's a high probability that both of them will belong to the same group.
+%We need to make sure that our inference algorithm correctly predicts users' income in each of the 5 categories $ H_1, \ldots, H_5 $. According to our hypothesis, the greater the amount of calls to , this increases the probability that both of them will belong to the same group.
 
-For each link $ p = \left< p_o, p_d, \ldots \right> \in P $, our hypothesis says that $ p_o $ and $ p_d $ will belong to the same income group. In particular, we can create 5 binary classifiers, one for each income group, which can take one of four results depending on whether the caller or the calee belong to it.
+%For each link $ p = \left< p_o, p_d, \ldots \right> \in P $, our hypothesis says that $ p_o $ and $ p_d $ will belong to the same income group. 
+
+In order to validate our proposed methodology, for each category we constructed 
+
+ 
+In particular, we can create 5 binary classifiers, one for each income group, which can take one of four results depending on whether the caller or the calee belong to it.
 
 \vspace{1em}
 
@@ -18,7 +23,9 @@ Callee not in group & \cellcolor{red} \makecell{False Positive \\ (Type I Error)
 \end{tabu}
 \end{adjustwidth}
 
-To validate these classifiers, we use a \textbf{Receiver Operating Characteristic Curve} to plot the \textbf{True Positive Rate} and the \textbf{False Positive Rate} of each system. Since the amount of people in each group is almost equal, randonly guessing each user's income would result in a diagonal line.
+%To validate these classifiers, we use 
+
+a \textbf{Receiver Operating Characteristic Curve} (ROC) to plot the \textbf{True Positive Rate} and the \textbf{False Positive Rate} of each system. Since the amount of people in each group is almost equal, randonly guessing each user's income would result in a diagonal line.
 
 As an objective measurement, we can calculate the \textbf{Area under the curve} for each income group as the chance that the classifier would make a better prediction of the composition of this income group better than a random one. For this we define the density functions $ f_i(x) $ as the probability that a user will be considered part of the income group $ H_i $, and $ g_i(x) $ as the probability that it won't. This way we can characterize the True Positive Rate and the False Positive Rate for each group as
 
