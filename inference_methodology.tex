@@ -51,17 +51,23 @@ where the income ranges are set as follows
 \end{align*}
 
 
+Then, we look for users in our graph having at less one connection link to bank clients in one of these income categories, namely $Q$. For each user $q^j \in Q$, we can compute the frequency of outgoing calls $a^j_i$ to the category $H_i$. Our hypothesis under the observed homophily is that an user $q^j$ with high frequency of calls $a^j_i$ to the $H_i$ category would be probably belonging to $H_i$ income category. In order to formalize this idea, we took into account the frequencies $a^j_i$ of outgoing calls and defined for each user $q^j$ a Dirichlet probability distribution function $D^j$ (\ecref{Dirichlet}):  
+
+\begin{equation}
+D^j \left( x_1, \ldots, x_5; \alpha^j_1, \ldots, \alpha^j_5 \right) = \frac{1}{\Beta \left( \alpha \right)} \prod^5_{i = 1} x_i^{\alpha^j_i - 1}
+\label{Dirichlet}
+\end{equation}
+
+Where $\alpha^j_i = a^j_i +1$, are the parammeters of de distribution, and $\Beta$ represents the Beta distribution function, deffined according to (\ecref{Beta})
+
+\begin{equation}
+\Beta \left( \alpha_1, \ldots, \alpha_k \right) = \frac{\prod^k_{i = 1} \Gamma \! \left( \alpha_i \right)}{\Gamma \! \left( \sum^k_{i = 1} \alpha_i \right) }
+\label{Beta} 
+\end{equation}
+
+In this way we obtained a Dirichlet distribution for each user $q^j$
 According to the Dirichlet Distibution, each user has a caller income category probability density function of the form
 
-\[
-f \left( x_1, \ldots, x_5; \alpha_1, \ldots, \alpha_5 \right) = \frac{1}{\Beta \left( \alpha \right)} \prod^5_{i = 1} x_i^{\alpha_i - 1}
-\]
-
-Where $ \Beta $ represents the Beta function,
-
-\[
-\Beta \left( \alpha_1, \ldots, \alpha_k \right) = \frac{\prod^k_{i = 1} \Gamma \! \left( \alpha_i \right)}{\Gamma \! \left( \sum^k_{i = 1} \alpha_i \right) }
-\]
 
 For all the other users in the telco \textcolor{red}{having at less one connection link to any telco users with a deffined income category} $ q \in Q = (N \setminus G) $, we can use this distribution to infer the probabilities of being part of each group $ H_1, \ldots, H_5 $, and this way approximate the economic status.
 
