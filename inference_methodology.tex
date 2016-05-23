@@ -35,8 +35,6 @@ We can take advantage of this homophily to propagate income information to the r
 
 Instead of predicting the exact value of a users income, our strategy is to separate the income values into five distinct groups $ H_1, \ldots, H_5 H_5 \subseteq G$ of increasing wealth where
 
-%To define the result of the prediction in exact terms, we discretize the income distribution into 5 groups, $ H_1, \ldots, %H_5 \subseteq G $ of increasing wealth, where
-
 \[
 	g \in H_i \iff g_s \in R_i
 \]
@@ -50,8 +48,9 @@ where the income ranges are set as follows
 	R_5 &= \left[50000, \infty\right) \\
 \end{align*}
 
-
 Then, we look for users in our graph having at less one connection link to bank clients in one of these income categories, namely $Q$. For each user $q^j \in Q$, we can compute the frequency of outgoing calls $a^j_i$ to the category $H_i$. Our hypothesis under the observed homophily is that an user $q^j$ with high frequency of calls $a^j_i$ to the $H_i$ category would be probably belonging to $H_i$ income category. In order to formalize this idea, we took into account the frequencies $a^j_i$ of outgoing calls and defined for each user $q^j$ a Dirichlet probability distribution function $D^j$ (\ecref{Dirichlet}):  
+=======
+According to the Dirichlet Distibution, each user has a caller income category probability density function of the form
 
 \begin{equation}
 D^j \left( x_1, \ldots, x_5; \alpha^j_1, \ldots, \alpha^j_5 \right) = \frac{1}{\Beta \left( \alpha \right)} \prod^5_{i = 1} x_i^{\alpha^j_i - 1}
@@ -69,8 +68,4 @@ In this way we obtained a Dirichlet distribution for each user $q^j$
 According to the Dirichlet Distibution, each user has a caller income category probability density function of the form
 
 
-For all the other users in the telco \textcolor{red}{having at less one connection link to any telco users with a deffined income category} $ q \in Q = (N \setminus G) $, we can use this distribution to infer the probabilities of being part of each group $ H_1, \ldots, H_5 $, and this way approximate the economic status.
-
-
-
-
+For all the other users in the telco having at least one link to any other telco user with a defined income $ q \in Q = \left\{x \in \left( N \setminus B \right) \mid (\exists y \in G) \left< x, y \right> \in P \vee \left< y, x \right> \in P \right\} $, we can use this distribution to infer the probabilities of being part of each group $ H_1, \ldots, H_5 $, and this way approximate the economic status.
