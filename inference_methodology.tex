@@ -12,21 +12,13 @@
 
 The main contribution of this work is the estimation of the income of the telco users for which we lack banking data but have bank clients in their neighborhood of network graph. To show the feasibility of this task we first show the existence of a strong income homophily in the telco graph as is evidenced in figure \ref{homophily_heatmap}.
 
-<<<<<<< HEAD
-For each pair \( \left< o, d \right> \in \mathlarger{G} \) we define \( X \) as the set of incomes for callers and \( Y \) as the set of incomes for callees. According to what we can observe in Figure \ref{homophily_heatmap}, \( X \) and \( Y \) should be significantly correlated. Given the broad non gaussian distribution of the income's values, we choose to use a rank based measure of correlation, namely the \textbf{Spearman's rank correlation} to test the statistical dependence of sets \( X \) and \( Y \) using the following formula: 
-=======
 For each pair \( \left< o, d \right> \in \mathlarger{G} \) we define \( X \) as the set of incomes for callers and \( Y \) as the set of incomes for callees. According to what we can observe in Figure \ref{homophily_heatmap}, \( X \) and \( Y \) should be significantly correlated. Given the broad non gaussian distribution of the income's values, which covers several different  orders of magnitude, we choose to use a rank based measure of correlation which is robust to ourliers, namely the \textbf{Spearman's rank correlation} to test the statistical dependence of sets \( X \) and \( Y \) using the following formula: 
->>>>>>> 6660467a0c016141c6adce2fe1cfae4b7d362644
 
 \[
 r_s = \mathlarger{\rho}_{\operatorname{rank}(X) \operatorname{rank}(Y)} = \frac{\operatorname{cov}(\operatorname{rank}(x), \operatorname{rank}(y))}{\sigma_{\operatorname{rank}(X)} \sigma_{\operatorname{rank}(Y)}}
 \]
 
-<<<<<<< HEAD
-If we compare our data with a randomized null hypothesis, where links between users are selected randomly disregarding income data, this coefficient gives us a correlation coefficient of $r_s = \mathbf{0.474} $ with a P-value of $ \mathbf{P < 10^{-6}} $. This is significant enough to show that there is an important amount of homophily between users' incomes in our data.
-=======
-If we compare our data with a randomized null hypothesis, where links between users are selected randomly disregarding income data, this coefficient gives us a correlation coefficient of $r_s = \mathbf{0.474} $ with a P-value of $ \mathbf{P < 10^{-6}} $. This is statistically significant enough to show that there's some amount of homopsily between the users' incomes in our data.
->>>>>>> 6660467a0c016141c6adce2fe1cfae4b7d362644
+If we compare our data with a randomized null hypothesis, where links between users are selected randomly disregarding income data, this coefficient gives us a correlation coefficient of $r_s = \mathbf{0.474} $ with a P-value of $ \mathbf{P < 10^{-6}} $. This is statistically significant enough to show that there's some amount of homophily between the users' incomes in our data.
 
 We can take advantage of this homophily to propagate income information to the rest of our graph $ \mathlarger{P} $, where we don't know the income of all of the users.
 
@@ -40,13 +32,22 @@ We can take advantage of this homophily to propagate income information to the r
 
 \subsection{Prediction algorithm}
 
-Instead of attempting to predict the exact value of a user's income we partition the set of possible income values into five groups that were deemed usefull for the Bank: $[1000,2500),[2500,7500),[7500,20000),[20000,50000),[50000,+50000)$, values are given in Mexican pesos.  
+Since making a good prediction for the exact user's income will be extremely hard and won't be particularly useful, we separate the incomes into five distinct groups $ H_1, \ldots, H_5 $.
 
-To define the result of the prediction in exact terms, we discretize the income distribution into 5 equally sized groups, $ H_1, \ldots, H_5 $ of increasing wealth, where
+To define the result of the prediction in exact terms, we discretize the income distribution into 5 groups, $ H_1, \ldots, H_5 \subseteq G $ of increasing wealth, where
 
 \[
-\left( \forall g \in H_i, g' \in H_{i + 1} \right) g_s < g'_s
+	g \in H_i \iff g_s \in R_i
 \]
+
+And the income ranges are defined as
+\begin{align*}
+	R_1 &= \left[1000, 2500\right) \\
+	R_2 &= \left[2500, 7500\right) \\
+	R_3 &= \left[7500, 20000\right) \\
+	R_4 &= \left[20000, 50000\right) \\
+	R_5 &= \left[50000, \infty\right) \\
+\end{align*}
 
 For each user $ g \in \mathlarger{G} $ we define its call distribution to other income categories as $ g_{\alpha_1} \ldots g_{\alpha_5} $, and we use those distrubutions as the parametrization of a \textbf{Dirichlet Distribution}. We interpret the sample space of $ D(\alpha_p) $ as a discrete probability distribution by considering our initial assumption of data homophily, where we expect users belonging to a certain category to have calls concentrated to other users of that particular one.
 
