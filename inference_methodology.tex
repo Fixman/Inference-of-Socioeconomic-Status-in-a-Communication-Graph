@@ -14,11 +14,19 @@ The main contribution of this work is the estimation of the income of the telco 
 
 For each pair \( \left< o, d \right> \in \mathlarger{G} \) we define \( X \) as the set of incomes for callers and \( Y \) as the set of incomes for callees. According to what we can observe in Figure x, \( X \) and \( Y \) should be significantly correlated. Given the broad non gaussian distribution of the income's values, we choose to use a rank based measure of correlation, namely the \textbf{Spearman's rank correlation} to test the statistical dependence of sets \( X \) and \( Y \) using the following formula: 
 
+\textcolor{Red}{
+For each pair \( \left< o, d \right> \in \mathlarger{G} \) we define \( X \) as the set of incomes for callers and \( Y \) as the set of incomes for callees. In order to quantify and testing the statistical dependence of these sets we used a rank based measure of correlation, namely the \textbf{Spearman's rank correlation} (see ecuation XXX). We remark that this election seem to make sense since the income distribution cover several orders of magnitude and this measure is robust to outliers. (NOTA,DESDE MI PUNTO DE VISTA, PARA DECIR LO DE NO GAUSIANO HABRÍA QUE METER ALGUNA PRUEBA ESTADÍSTICA). 
+}
+
 \[
 r_s = \mathlarger{\rho}_{\operatorname{rank}(X) \operatorname{rank}(Y)} = \frac{\operatorname{cov}(\operatorname{rank}(x), \operatorname{rank}(y))}{\sigma_{\operatorname{rank}(X)} \sigma_{\operatorname{rank}(Y)}}
 \]
 
 If we compare our data with a randomized null hypothesis, where links between users are selected randomly disregarding income data, this coefficient gives us a correlation of $ \mathbf{0.474} $ with a P-value of $ \mathbf{P < 10^{-6}} $. This is significant enough to show that there is an important amount of homophily between users' incomes in our data.
+
+\textcolor{Red}{
+ We obtain a Spearman's rank correlation of of $ \mathbf{0.474} $. We compare this results with a null hypothesis of randomly distribuited links between users, disregarding income data, and found that this correlation coefficient is statistically significative with a P-value of $ \mathbf{P < 10^{-6}} $. This results suggest the existence of homophily between users' incomes in our data.
+}
 
 We can take advantage of this homophily to propagate income information to the rest of our graph $ \mathlarger{P} $, where we don't know the income of all of the users.
 
