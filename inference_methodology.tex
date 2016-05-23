@@ -16,7 +16,7 @@
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=1\columnwidth]{figures/Homophily_income_origin_target_1/Homophily_income_origin_target_1.png}
-\caption{ \protect\input{figures/Homophily_income_origin_target_1/caption}}
+\caption{Heatmap showing the number of calls between users, according to their monthly income. There is a higher probability that the callee and the caller have similar income levels.}
 \label{homophily_heatmap}
 \end{center}
 \end{figure}
@@ -67,7 +67,9 @@ B^j \left( x_1, x_2; \alpha^j_1,\alpha^j_2 \right) = \frac{1}{\Beta \left( \alph
 %Where $\alpha^j_i = a^j_i +1$, are the parameters of the Beta distribution, and $\Beta$ is the multivariate beta distribution function, defined according to: % (\eqref{Beta})
 
 \begin{equation}
-\Beta \left( \alpha_1, \alpha_2 \right) = \frac{\prod^2_{i = 1} \Gamma \! \left( \alpha_i \right)}{\Gamma \! \left( \sum^2_{i = 1} \alpha_i \right) }
+\Beta \left( \alpha_1, \alpha_2 \right) = 
+\frac{ \Gamma \! \left( \alpha_1 \right) \cdot \Gamma \! \left( \alpha_2 \right)}
+{\Gamma \! \left( \alpha_1 + \alpha_2 \right) }
 \label{Beta} 
 \end{equation}
 
