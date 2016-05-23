@@ -33,15 +33,15 @@ We can take advantage of this homophily to propagate income information to the r
 
 \subsection{Prediction algorithm}
 
-Since making a good prediction for the exact user's income will be extremely hard and won't be particularly useful, we separate the incomes into five distinct groups $ H_1, \ldots, H_5 $.
+Instead of predicting the exact value of a users income, our strategy is to separate the income values into five distinct groups $ H_1, \ldots, H_5 H_5 \subseteq G$ of increasing wealth where
 
-To define the result of the prediction in exact terms, we discretize the income distribution into 5 groups, $ H_1, \ldots, H_5 \subseteq G $ of increasing wealth, where
+%To define the result of the prediction in exact terms, we discretize the income distribution into 5 groups, $ H_1, \ldots, %H_5 \subseteq G $ of increasing wealth, where
 
 \[
 	g \in H_i \iff g_s \in R_i
 \]
 
-And the income ranges are defined as
+where the income ranges are set as follows
 \begin{align*}
 	R_1 &= \left[1000, 2500\right) \\
 	R_2 &= \left[2500, 7500\right) \\
@@ -50,7 +50,8 @@ And the income ranges are defined as
 	R_5 &= \left[50000, \infty\right) \\
 \end{align*}
 
-According to the Dirchelet Distibution, each user has a caller category probability density function of the form
+
+According to the Dirichlet Distibution, each user has a caller income category probability density function of the form
 
 \[
 f \left( x_1, \ldots, x_5; \alpha_1, \ldots, \alpha_5 \right) = \frac{1}{\Beta \left( \alpha \right)} \prod^5_{i = 1} x_i^{\alpha_i - 1}
