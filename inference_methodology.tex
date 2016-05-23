@@ -50,7 +50,6 @@ where the income ranges are set as follows
 
 Then, we look for users in our graph having at less one connection link to bank clients in one of these income categories, namely $Q$. For each user $q^j \in Q$, we can compute the frequency of outgoing calls $a^j_i$ to the category $H_i$. Our hypothesis under the observed homophily is that an user $q^j$ with high frequency of calls $a^j_i$ to the $H_i$ category would be probably belonging to $H_i$ income category. In order to formalize this idea, we took into account the frequencies $a^j_i$ of outgoing calls and defined for each user $q^j$ a Dirichlet probability distribution function $D^j$ (\eqref{Dirichlet}):  
 
-
 \begin{equation}
 D^j \left( x_1, \ldots, x_5; \alpha^j_1, \ldots, \alpha^j_5 \right) = \frac{1}{\Beta \left( \alpha \right)} \prod^5_{i = 1} x_i^{\alpha^j_i - 1}
 \label{Dirichlet}
