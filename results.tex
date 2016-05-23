@@ -6,7 +6,8 @@
 
 %For each link $ p = \left< p_o, p_d, \ldots \right> \in P $, our hypothesis says that $ p_o $ and $ p_d $ will belong to the same income group. 
 
-In order to validate our proposed methodology, we constructed 5 binary classifiers, one for each income group, which selects whether a given user belongs to that category.
+In order to validate our proposed methodology, we take advantage of the computed $p_lower$ for each user and use this quantity as the predicition score that allow us to evaluate whether a given user belongs to one of the deffined categories. A standarized way to quantify the performace of the metodology is by computing Receiver Operating Characteristic Curve (ROC). This curve  
+
 
 \vspace{1em}
 
@@ -47,8 +48,8 @@ Where $ X_1 $ is the score for a positive instance, and $ X_0 $ is the score for
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=\columnwidth]{figures/ROC_multiclass/ROC_multiclass.png}
-\caption{ \protect\input{figures/ROC_multiclass/caption}}
+\includegraphics[width=\columnwidth]{figures/ROC_BETA/ROC_Beta_based_approach_201504.png}
+\caption{ROC curve for prediction procedure. We observed an AUC=0.74 indicating that our predictor is far from being a random predictor (AUC~0.5)}
 \label{ROC_multiclass}
 \end{center}
 \end{figure}
