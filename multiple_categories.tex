@@ -1,0 +1,38 @@
+\section{Extension to Multiple Categories}
+
+We present here how the methodology described in Section~\ref{inference_methodology} for
+2 categories can be extended to multiple categories.
+To this end, we separate the income values into five distinct groups $ H_1, \ldots, H_5 \subseteq G$ of increasing wealth where:
+\[
+	g \in H_i \iff g_s \in R_i
+\]
+and the income ranges are set as follows (in Mexican pesos):
+\begin{align*}
+	R_1 &= \left[1000, 2500\right) \\
+	R_2 &= \left[2500, 7500\right) \\
+	R_3 &= \left[7500, 20000\right) \\
+	R_4 &= \left[20000, 50000\right) \\
+	R_5 &= \left[50000, \infty\right). \\
+\end{align*}
+
+Again, we define the set $Q$ as the group of users having at least one connection link to bank clients. For each user $q^j \in Q$, we compute the number of outgoing calls $a^j_i$ to the category $H_i$. 
+We use the amount of calls $a^j_i$  as parameters defining a Dirichlet distribution for the probability of belonging to a given category. 
+We define below the Dirichlet probability distribution function $D^j$:  
+
+\begin{equation}
+D^j \left( x_1, \ldots, x_5; \alpha^j_1, \ldots, \alpha^j_5 \right) = \frac{1}{\Beta \left( \alpha \right)} \prod^5_{i = 1} x_i^{\alpha^j_i - 1}
+\label{Dirichlet}
+\end{equation}
+
+Where $\alpha^j_i = a^j_i +1$, are the parameters of the Dirichlet distribution, and $\Beta$ is the multivariate beta distribution function, defined according to: % (\eqref{Beta})
+
+\begin{equation}
+\Beta \left( \alpha_1, \ldots, \alpha_k \right) = \frac{\prod^k_{i = 1} \Gamma \! \left( \alpha_i \right)}{\Gamma \! \left( \sum^k_{i = 1} \alpha_i \right) }
+\label{Beta} 
+\end{equation}
+
+
+Note that the above equation defines a distinct Dirichlet distribution for each user. We use the Dirichlet distribution to define the following algorithm to infer the appropriate income category for each user: 
+
+for each user we compute the marginal Dirichlet distribution for each income category. For each marginal we find the lowest 5 percentile $p_{lower}$ value and assign the income category with the highest $p_{lower}$ to the user. This criteria take into account both the mean and the broadness of the distribution. 
+ 
