@@ -48,9 +48,9 @@ To define the result of the prediction in exact terms, we discretize the income 
 \left( \forall g \in H_i, g' \in H_{i + 1} \right) g_s < g'_s
 \]
 
-For each user $ g \in \mathlarger{G} $ we define its call distribution to other income categories as $ g_{\alpha_1} \ldots g_{\alpha_5} $, and we use those distrubutions as the parametrization of a \textbf{Dirichlet Distribution}. We interpret the sample space of $ D(\alpha_p) $ as a discrete probability distribution by considering our initial assumption of data homophily, where we expect users belonging to a certain category to have calls concentrated to other users of that particular one.
+For each user $ g \in \mathlarger{G} $ we define its call distribution to other income categories as $ g_{\alpha_1} \ldots g_{\alpha_5} $, and we use those distrubutions as the parametrization of a \textbf{Dirichlet Distribution} (see equation XXX). We interpret the sample space of $ D(\alpha_p) $ as a discrete probability distribution by considering our initial assumption of data homophily, where we expect users belonging to a certain category to have calls concentrated to other users of that particular one.
 
-Each user has a caller category probability density function of the form
+According to the Dirchelet Distibution, each user has a caller category probability density function of the form
 
 \[
 f \left( x_1, \ldots, x_5; \alpha_1, \ldots, \alpha_5 \right) = \frac{1}{\Beta \left( \alpha \right)} \prod^5_{i = 1} x_i^{\alpha_i - 1}
@@ -62,4 +62,8 @@ Where $ \Beta $ represents the Beta function,
 \Beta \left( \alpha_1, \ldots, \alpha_k \right) = \frac{\prod^k_{i = 1} \Gamma \! \left( \alpha_i \right)}{\Gamma \! \left( \sum^k_{i = 1} \alpha_i \right) }
 \]
 
-For all the other users in the telco $ q \in Q = (N \setminus G) $, we can use this distribution to infer the probabilities of being part of each group $ H_1, \ldots, H_5 $, and this way approximate the economic status.
+For all the other users in the telco \textcolor{red}{having at less one connection link to any telco users with a deffined income category} $ q \in Q = (N \setminus G) $, we can use this distribution to infer the probabilities of being part of each group $ H_1, \ldots, H_5 $, and this way approximate the economic status.
+
+
+
+
