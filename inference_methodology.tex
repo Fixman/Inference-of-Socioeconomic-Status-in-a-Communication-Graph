@@ -1,4 +1,5 @@
 \section{Inference Methodology}
+\label{inference_methodology}
 
 %For the SEI:
 
@@ -9,6 +10,16 @@
 %\sout{As part of the dataset from the bank \( B \), we have the monthly salaries of most bank users \( B_{S_0} \cdots B_{S_t} \) for a period \( t \) larger than \( M \). We considered the average of \( B_{S_i} \) for a period of \( 6 \) moths to generate \( B_S \)}
 
 %\sout{To infer the monthly salary of the users we take the average of \( B_{S_i} \) for a period of \( 6 \) moths to generate \( B_S \), and we compare them with other users' salaries by using the link correlations in \( G_N \).}
+
+\subsection{Income Homophily}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=1\columnwidth]{figures/Homophily_income_origin_target_1/Homophily_income_origin_target_1.png}
+\caption{ \protect\input{figures/Homophily_income_origin_target_1/caption}}
+\label{homophily_heatmap}
+\end{center}
+\end{figure}
 
 The main contribution of this work is the estimation of the income of the telco users for which we lack banking data but have bank clients in their neighborhood of network graph. To show the feasibility of this task we first show the existence of a strong income homophily in the telco graph as is evidenced in Figure~\ref{homophily_heatmap}.
 
@@ -24,17 +35,10 @@ If we compare our data with a randomized null hypothesis, where links between us
 
 We can take advantage of this homophily to propagate income information to the rest of our graph $ \mathP $, where we don't know the income of all of the users.
 
-\begin{figure}[h]
-\begin{center}
-\includegraphics[width=1\columnwidth]{figures/Homophily_income_origin_target_1/Homophily_income_origin_target_1.png}
-\caption{ \protect\input{figures/Homophily_income_origin_target_1/caption}}
-\label{homophily_heatmap}
-\end{center}
-\end{figure}
 
-\subsection{Prediction algorithm}
+\subsection{Prediction Algorithm}
 
-Instead of predicting the exact value of a users income, our strategy is to distinguish between only two income categories, $R_1 = \left[1000, 2500\right)$ and $R_2 = \left[2500, \infty\right)$, that is users with low or high income respectively, which we place into two distinct groups $ H_1, H_2 \subseteq G$:
+Instead of predicting the exact value of a user's income, our strategy is to distinguish between only two income categories, $R_1 = \left[1000, 2500\right)$ and $R_2 = \left[2500, \infty\right)$, that is users with low or high income respectively, which we place into two distinct groups $ H_1, H_2 \subseteq G$:
 \[
 	g \in H_i \iff g_s \in R_i
 \]
