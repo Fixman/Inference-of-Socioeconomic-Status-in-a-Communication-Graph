@@ -60,12 +60,11 @@ We define the set $Q$ as the group of users having at least one connection link 
 %\end{equation}
 
 \begin{equation}
-B^j \left( x_1, x_2; \alpha^j_1,\alpha^j_2 \right) = \frac{1}{\Beta \left( \alpha \right)} \prod^2_{i = 1} x_i^{\alpha^j_i - 1}
+B^j \left( x_1, x_2; \alpha^j_1,\alpha^j_2 \right) = \frac{1}{\Beta \left( \alpha^j_1, \alpha^j_2 \right)} x_1^{\alpha^j_1 - 1} \cdot x_2^{\alpha^j_2 - 1}
 \label{Beta}
 \end{equation}
-
-%Where $\alpha^j_i = a^j_i +1$, are the parameters of the Beta distribution, and $\Beta$ is the multivariate beta distribution function, defined according to: % (\eqref{Beta})
-
+where $\alpha^j_i = a^j_i +1$ are the parameters of the Beta distribution, 
+and $\Beta$ is the beta function, defined by:
 \begin{equation}
 \Beta \left( \alpha_1, \alpha_2 \right) = 
 \frac{ \Gamma \! \left( \alpha_1 \right) \cdot \Gamma \! \left( \alpha_2 \right)}
@@ -74,7 +73,8 @@ B^j \left( x_1, x_2; \alpha^j_1,\alpha^j_2 \right) = \frac{1}{\Beta \left( \alph
 \end{equation}
 
 
-Note that the above equation defines a distinct distribution for each user. Having obtained the Beta distribution for the probability of belonging to the high income category we then find the lowest 5 percentile $p_{lower}$ for this probability. If $p_{lower}$ is above a given threshold $\tau$, we set the users income to $H_1$, otherwise we set his income category to $H_2$. We note that this criteria takes into account both the mean and the broadness(uncertainty) of the distribution. We also note that the category a user is classified depends not only on its Beta distribution but on our choice of $\tau$. We therefore choose a value for $\tau$ which maximizes the trade off between true positive ($TPR$) and false positive ($FPR$) rates: $TPR=TP/P$ and $FPR=FP/N$ where $TP$ is the number of correctly predicted users with high income, $P$ is the total number of users with high income, $FP$ is the number of users incorrectly classified as having high income, and $N$ is the total number of users with low income. 
+Note that the above equation defines a distinct distribution for each user. Having obtained the Beta distribution for the probability of belonging to the high income category we then find the lowest 5 percentile $p_{lower}$ for this probability. If $p_{lower}$ is above a given threshold $\tau$, we set the users income to $H_1$, otherwise we set his income category to $H_2$. We note that this criteria takes into account both the mean and the broadness(uncertainty) of the distribution. We also note that the category a user is classified depends not only on its Beta distribution but on our choice of $\tau$. 
+%We therefore choose a value for $\tau$ which maximizes the trade off between true positive ($TPR$) and false positive ($FPR$) rates: $TPR=TP/P$ and $FPR=FP/N$ where $TP$ is the number of correctly predicted users with high income, $P$ is the total number of users with high income, $FP$ is the number of users incorrectly classified as having high income, and $N$ is the total number of users with low income. 
 
  
  
