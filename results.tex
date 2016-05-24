@@ -8,20 +8,20 @@
 
 %In order to validate our proposed methodology, we take advantage of the computed $p_lower$ for each user and use this quantity as the predicition score that allow us to evaluate whether a given user belongs to one of the deffined categories. A standarized way to quantify the performace of the metodology is by computing Receiver Operating Characteristic Curve (ROC). This curve  
 
-A standard method to evaluate the trade off between 
+In Figure~\ref{ROC_multiclass} we plot the \textbf{Receiver Operating Characteristic Curve} (ROC) showing $TPR$ and $FPR$ for the set of possible values of $\tau$. We see that our methodology clearly out performs random guessing (dashed straight line). We can summarize our perfomance calculating  the \textbf{Area under the curve} (AUC) which in Figure~\ref{ROC_multiclass} is $AUC = 0.74$ not that random guessing would give as a value of $AUC = 0.50$.
 
 
-\vspace{1em}
-
-\begin{adjustwidth}{-1.5cm}{}
-\begin{tabu} to \textwidth { r X[c] X[c] }
-& \multicolumn{2}{ c }{\textbf{Classifier result for income group $ H_i $}} \\
-\\
-& Caller in group & Caller not in group \\
-Callee in group & \cellcolor{green} True Positive & \cellcolor{red} \makecell{False Negative \\ (Type II Error)} \\ 
-Callee not in group & \cellcolor{red} \makecell{False Positive \\ (Type I Error)} & \cellcolor{green} True Negative \\
-\end{tabu}
-\end{adjustwidth}
+%\vspace{1em}
+%
+%\begin{adjustwidth}{-1.5cm}{}
+%\begin{tabu} to \textwidth { r X[c] X[c] }
+%& \multicolumn{2}{ c }{\textbf{Classifier result for income group $ H_i $}} \\
+%\\
+%& Caller in group & Caller not in group \\
+%Callee in group & \cellcolor{green} True Positive & \cellcolor{red} \makecell{False Negative \\ (Type II Error)} \\ 
+%Callee not in group & \cellcolor{red} \makecell{False Positive \\ (Type I Error)} & \cellcolor{green} True Negative \\
+%\end{tabu}
+%\end{adjustwidth}
 
 %To validate these classifiers, we use 
 
@@ -29,14 +29,14 @@ Callee not in group & \cellcolor{red} \makecell{False Positive \\ (Type I Error)
 
 %As an objective measurement, we can calculate the \textbf{Area under the curve} for each income group as the chance that the classifier would make a better prediction of the composition of this income group better than a random one. For this we define the density functions $ f_i(x) $ as the probability that a user will be considered part of the income group $ H_i $, and $ g_i(x) $ as the probability that it won't. This way we can characterize the True Positive Rate and the False Positive Rate for each group as
 
-\vspace{-1em}
-
-\begin{align*}
-\operatorname{TPR}_i(T) &= \int^{\infty}_T f_i(x) dx \\
-\operatorname{FPR}_i(T) &= \int^{\infty}_T g_i(x) dx \\
-\end{align*}
-
-\vspace{-1.5em}
+%\vspace{-1em}
+%
+%\begin{align*}
+%\operatorname{TPR}_i(T) &= \int^{\infty}_T f_i(x) dx \\
+%\operatorname{FPR}_i(T) &= \int^{\infty}_T g_i(x) dx \\
+%\end{align*}
+%
+%\vspace{-1.5em}
 
 %With this two functions, we can define the AUC for each category as as a simple integration:
 
@@ -44,9 +44,9 @@ Callee not in group & \cellcolor{red} \makecell{False Positive \\ (Type I Error)
 %A_i = P(X_1 > X_0) = \int^{-\infty}_{\infty} \operatorname{TPR_i}(T) \operatorname{FPR_i}(T) dT
 %\]
 
-Where $ X_1 $ is the score for a positive instance, and $ X_0 $ is the score for a negative one.
+%Where $ X_1 $ is the score for a positive instance, and $ X_0 $ is the score for a negative one.
 
-\subsection{Results}
+%\subsection{Results}
 
 \begin{figure}[H]
 \begin{center}
@@ -56,13 +56,13 @@ Where $ X_1 $ is the score for a positive instance, and $ X_0 $ is the score for
 \end{center}
 \end{figure}
 
-The result ROC curves have the following areas:
-
-\vspace{-1em}
-
-\begin{align*}
-A_1 &= 0.68 & A_2 &= 0.69 & A_3 &= 0.63 \\ 
-A_4 &= 0.68 & A_5 &= 0.69
-\end{align*}
-
-As evidenced by figure \ref{ROC_multiclass}, the inference process seems to have been successful: the predicted value is much better than one predicted by a random classifier for all of the categories.
+%The result ROC curves have the following areas:
+%
+%\vspace{-1em}
+%
+%\begin{align*}
+%A_1 &= 0.68 & A_2 &= 0.69 & A_3 &= 0.63 \\ 
+%A_4 &= 0.68 & A_5 &= 0.69
+%\end{align*}
+%
+%As evidenced by figure \ref{ROC_multiclass}, the inference process seems to have been successful: the predicted value is much better than one predicted by a random classifier for all of the categories.
