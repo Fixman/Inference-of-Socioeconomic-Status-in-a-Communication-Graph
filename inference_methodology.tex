@@ -68,7 +68,9 @@ B^j \left( x_1, x_2; \alpha^j_1,\alpha^j_2 \right) = \frac{1}{\Beta \left( \alph
 \end{equation}
 
 
-Note that the above equation defines a distinct distribution for each user. Having obtained the Beta distribution for the probability of belonging to the high income category we then find the lowest 5 percentile $p_{lower}$ for this probability. If $p_{lower}$ is above a given threshold $\tau$, we set the users income to $H_1$, otherwise we set his income category to $H_2$. We note that this criteria takes into account both the mean and the broadness(uncertainty) of the distribution. We also note that the category a user is classified depends not only on its Beta distribution but on our choice o $\tau$, we there choose a value for $\tau$ which maximizes the trade off between true positive and false positives as described in the next section.
+Note that the above equation defines a distinct distribution for each user. Having obtained the Beta distribution for the probability of belonging to the high income category we then find the lowest 5 percentile $p_{lower}$ for this probability. If $p_{lower}$ is above a given threshold $\tau$, we set the users income to $H_1$, otherwise we set his income category to $H_2$. We note that this criteria takes into account both the mean and the broadness(uncertainty) of the distribution. We also note that the category a user is classified depends not only on its Beta distribution but on our choice of $\tau$. We therefore choose a value for $\tau$ which maximizes the trade off between true positive ($TPR$) and false positive ($FPR$) rates: $TPR=TP/P$ and $FPR=FP/N$ where $TP$ is the number of correctly predicted users with high income, $P$ is the total number of users with high income, $FP$ is the number of users incorrectly classified as having high income, and $N$ is the total number of users with low income. 
+
+ 
  
 
 %For each user $q^j$ we estimate and the corresIn this way we obtained a Dirichlet distribution for each user $q^j$ and compute 
